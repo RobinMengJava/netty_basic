@@ -28,11 +28,19 @@ public class BioCilent {
                  * 接收服务端发送的消息
                  * */
                 byte[] readBuffer = new byte[1024];
-                int length = socket.getInputStream().read(readBuffer);
-                System.out.println("服务端发送来的消息 + [" + new String(readBuffer, 0, length) + "]");
+                int length;
+                while ((length = socket.getInputStream().read(readBuffer)) != -1) {
+                    System.out.println("服务端发送来的消息 + [" + new String(readBuffer) + "]");
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                socket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
