@@ -20,7 +20,7 @@ public class BioServer extends Thread{
             serverSocket = new ServerSocket();
             serverSocket.bind(new InetSocketAddress(7397));
 
-            System.out.println("netty-1-00 server start done.");
+            System.out.println("netty-1-00 com.netty.server start done.");
 
             while (true) {
                 // 接收客户端的连接

@@ -22,7 +22,7 @@ public class NioServer {
             serverSocketChannel.configureBlocking(false);
             serverSocketChannel.socket().bind(new InetSocketAddress(port), 1024);
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
-            System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + " nio server start dene...");
+            System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + " nio com.netty.server start dene...");
 
             new NioServerHandler(selector, Charset.forName("GBK")).start();
         } catch (IOException e) {
