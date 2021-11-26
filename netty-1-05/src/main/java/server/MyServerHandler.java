@@ -13,9 +13,8 @@ public class MyServerHandler extends ChannelInboundHandlerAdapter {
 
         System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()) + "接收到消息：" + msg);
 
-        // 定义一句话发送给客户端，以证明服务端收到了消息
-        String str = "随机数" + Math.random() * 10 + "\r\n";
-//        ctx.writeAndFlush(str);
+        // 不再向客户端发送已经收到的消息
+//        ctx.writeAndFlush("hi I'm ok");
     }
 
     @Override
@@ -27,8 +26,8 @@ public class MyServerHandler extends ChannelInboundHandlerAdapter {
         System.out.println("链接报告port: " + channel.localAddress().getPort());
         System.out.println("链接报告完毕");
 
-        // 通知客户端链接建立成功
-        String str = "通知客户端链接建立成功" + " " + new Date() + " " + channel.localAddress().getHostString() + "\r\n";
+        // 通知客户端链接建立成功,不再向客户端发送建立成功的信息
+//        String str = "通知客户端链接建立成功" + " " + new Date() + " " + channel.localAddress().getHostString() + "\r\n";
 //        ctx.writeAndFlush(str);
     }
 
