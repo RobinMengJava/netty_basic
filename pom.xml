@@ -23,6 +23,7 @@
         <module>netty-1-05</module>
         <module>netty-1-06</module>
         <module>netty-2-01</module>
+        <module>netty-2-02</module>
     </modules>
 
 
